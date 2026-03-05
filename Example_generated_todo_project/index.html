@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Todo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="app">
+        <h1>Simple Todo</h1>
+        <div class="input-group">
+            <input id="new-task-input" type="text" placeholder="What needs to be done?" autocomplete="off" />
+            <button id="add-task-btn">Add</button>
+        </div>
+        <ul id="task-list" class="task-list"></ul>
+        <div class="filters">
+            <button data-filter="all" class="filter-btn active">All</button>
+            <button data-filter="active" class="filter-btn">Active</button>
+            <button data-filter="completed" class="filter-btn">Completed</button>
+        </div>
+    </div>
+
+    <!-- Hidden template for task items -->
+    <li class="task-item template" aria-hidden="true" style="display:none;">
+        <input type="checkbox" class="task-toggle" />
+        <span class="task-text"></span>
+        <button class="task-delete-btn">✕</button>
+    </li>
+</body>
+</html>

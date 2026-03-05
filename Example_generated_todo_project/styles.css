@@ -1,0 +1,231 @@
+/*
+  Simple Todo App – Stylesheet
+  -------------------------------------------------
+  This stylesheet defines root variables for colors, font sizes,
+  and spacing, and provides a clean, responsive design for the
+  Simple Todo application. All class and id selectors match the
+  markup in index.html and the expected behaviour in script.js.
+*/
+
+/* -------------------------------------------------
+   Root Variables – easy theming & consistency
+   ------------------------------------------------- */
+:root {
+  /* Colors */
+  --color-bg: #f5f5f5;            /* Page background */
+  --color-surface: #ffffff;       /* Card / app surface */
+  --color-primary: #4a90e2;       /* Buttons, active elements */
+  --color-primary-dark: #357ab8;  /* Hover state for primary */
+  --color-text: #333333;          /* Primary text */
+  --color-muted: #777777;         /* Secondary / disabled text */
+  --color-border: #e0e0e0;        /* Light borders */
+
+  /* Font */
+  --font-family: 'Helvetica Neue', Arial, sans-serif;
+  --font-size-base: 1rem;          /* 16px */
+  --font-size-sm: 0.875rem;       /* 14px */
+  --font-size-lg: 1.125rem;       /* 18px */
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+
+/* -------------------------------------------------
+   Global Styles
+   ------------------------------------------------- */
+html {
+  font-size: 100%; /* 16px base */
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+}
+
+h1 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  color: var(--color-primary);
+}
+
+/* -------------------------------------------------
+   App Container
+   ------------------------------------------------- */
+.app {
+  background-color: var(--color-surface);
+  max-width: 500px;
+  width: 100%;
+  padding: var(--spacing-lg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------------------------------------
+   Input Group – New task input & Add button
+   ------------------------------------------------- */
+.input-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+#new-task-input {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-base);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  outline: none;
+}
+
+#new-task-input:focus {
+  border-color: var(--color-primary);
+}
+
+#add-task-btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#add-task-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* -------------------------------------------------
+   Task List
+   ------------------------------------------------- */
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-item .task-toggle {
+  margin-right: var(--spacing-sm);
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.task-item .task-text {
+  flex: 1;
+  margin-right: var(--spacing-sm);
+}
+
+/* Completed state */
+.completed .task-text {
+  text-decoration: line-through;
+  color: var(--color-muted);
+}
+
+/* Delete button – minimal UI */
+.task-delete-btn {
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  transition: color 0.2s ease;
+}
+
+.task-delete-btn:hover {
+  color: var(--color-primary);
+}
+
+/* -------------------------------------------------
+   Filters
+   ------------------------------------------------- */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+.filter-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  color: var(--color-text);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-btn:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.filter-btn.active {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* -------------------------------------------------
+   Responsive Adjustments
+   ------------------------------------------------- */
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  #add-task-btn {
+    width: 100%;
+    margin-top: var(--spacing-xs);
+  }
+
+  body {
+    padding: var(--spacing-md);
+  }
+
+  .app {
+    padding: var(--spacing-md);
+  }
+
+  h1 {
+    font-size: var(--font-size-base);
+  }
+}
