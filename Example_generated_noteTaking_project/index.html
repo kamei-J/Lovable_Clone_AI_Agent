@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SimpleNotes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with title and controls -->
+    <header id="app-header" class="app-header">
+        <h1 class="app-title">SimpleNotes</h1>
+        <div class="app-controls">
+            <button id="create-note" class="control-btn">Create Note</button>
+            <button id="export-notes" class="control-btn">Export</button>
+            <button id="import-notes" class="control-btn">Import</button>
+            <input type="text" id="search-input" class="search-input" placeholder="Search..." />
+        </div>
+    </header>
+
+    <!-- Main layout: sidebar for note list and editor area -->
+    <main class="app-main">
+        <section id="note-list-section" class="note-list-section">
+            <h2>Notes</h2>
+            <ul id="note-list" class="note-list">
+                <!-- Note items will be injected here -->
+            </ul>
+        </section>
+
+        <section id="editor-section" class="editor-section">
+            <input type="text" id="note-title" class="note-title" placeholder="Note title" />
+            <textarea id="note-content" class="note-content" placeholder="Start writing your note..."></textarea>
+        </section>
+    </main>
+
+    <!-- Template for a note preview item -->
+    <template id="note-item-template">
+        <li class="note-item" data-id="">
+            <span class="note-item-title"></span>
+            <p class="note-item-preview"></p>
+        </li>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
