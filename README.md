@@ -132,7 +132,7 @@ AIagent_Lovable_clone/
 - State transitions between planner → architect → coder
 - Loop until all implementation steps complete
 
-## 🎨 Example Usage
+## 🎨 Example Usage Prompts
 
 - create a simple calculator web application
 - create a todo list application using html, css and javascript
